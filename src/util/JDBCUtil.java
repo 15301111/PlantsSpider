@@ -1,3 +1,4 @@
+package util;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -66,7 +67,7 @@ public class JDBCUtil {
 	}
 
 	public static void createField(String field) {
-		String sql= "ALTER TABLE usdaplants ADD "+field+" varchar(1000)";
+		String sql= "ALTER TABLE usdaplants ADD "+field+" varchar(400)";
 		try {
 			getConnection().createStatement().execute(sql);
 		} catch (SQLException e) {

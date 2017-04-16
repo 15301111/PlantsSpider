@@ -1,3 +1,4 @@
+package praser;
 import java.io.File;
 import java.io.IOException;
 import java.util.AbstractMap;
@@ -10,6 +11,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
+
+import util.PDFUtil;
 
 /**
  * @author: уевс©╙

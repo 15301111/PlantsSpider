@@ -1,3 +1,5 @@
+package spider;
+
 import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -9,11 +11,14 @@ import javax.swing.text.AbstractDocument.Content;
 
 import org.apache.commons.lang.StringUtils;
 
+import praser.HTMLPraser;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.processor.PageProcessor;
 import us.codecraft.webmagic.selector.Html;
+import util.JDBCUtil;
+import util.PDFUtil;
 
 /**
  * @author: 张子开
@@ -21,7 +26,7 @@ import us.codecraft.webmagic.selector.Html;
  * @version 1.0
  */
 
-public class PlantPageProcessor implements PageProcessor {
+public class PlantsProcessor implements PageProcessor {
 	// 部分一：抓取网站的相关配置，包括编码、抓取间隔、重试次数等
 	private Site site = Site.me().setRetryTimes(3).setSleepTime(1000);
 	private static final String regEx_html = "<[^>]+>"; // 定义HTML标签的正则表达式
@@ -137,7 +142,7 @@ public class PlantPageProcessor implements PageProcessor {
 	}
 
 	public static void main(String[] args) {
-		Spider.create(new PlantPageProcessor()).addUrl("https://plants.usda.gov/java/factSheet").thread(1)
+		Spider.create(new PlantsProcessor()).addUrl("https://plants.usda.gov/java/factSheet").thread(1)
 				.run();
 	}
 }
